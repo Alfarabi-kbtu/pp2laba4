@@ -1,0 +1,180 @@
+||Python iterators and generators||
+"""
+s = int(input())
+squares = (x**2 for x in range(s))
+for n in squares:
+    print(n)
+"""
+"""
+def even_numbers(n):
+    for i in range(0, n + 1):
+        if i % 2 == 0:
+            yield str(i)   
+
+n = int(input())
+print(",".join(even_numbers(n)))
+
+"""
+"""
+def func(n):
+    for i in range(0,n+1):
+        if i %3==0 and i%4==0:
+            yield str(i)
+n = int(input())
+print(",".join(func(n)))
+
+"""
+"""
+def squares(a, b):
+    result = (str(x**2) for x in range(a, b+1))
+    yield from result
+a = int(input())
+b = int(input())
+print(",".join(squares(a, b)))
+"""
+"""
+def reverse(n):
+    for i in range(n, 0, -1):
+        yield str(i)
+n = int(input())
+print(",".join(reverse(n)))
+"""
+
+||Python date||
+
+"""
+import datetime
+today = datetime.date.today()
+substract = today - datetime.timedelta(days=5)
+print(today)
+print(substract)
+"""
+"""
+import datetime
+today = datetime.date.today()
+yesterday = today - datetime.timedelta(days=1)
+tomorrow = today + datetime.timedelta(days=1)
+print(today)
+print(yesterday)
+print(tomorrow)
+"""
+"""
+from datetime import datetime
+today = datetime.now()
+result = today.replace(microsecond=0)
+print(result)
+"""
+"""
+from datetime import datetime
+
+date1_str = input("Enter first date (YYYY-MM-DD HH:MM:SS): ")
+date2_str = input("Enter second date (YYYY-MM-DD HH:MM:SS): ")
+
+date1 = datetime.strptime(date1_str)
+date2 = datetime.strptime(date2_str)
+
+diff_seconds = abs((date2 - date1).total_seconds())
+
+print(f"Difference in seconds: {diff_seconds}")
+"""
+
+
+||Python math library||
+"""
+import math
+degree = int(input())
+radian = math.radians(degree)
+print(f"Input degree: {degree}")
+print(f"Output radian: {radian:.6f}")
+"""
+"""
+height = 5
+base1 = 5
+base2 = 6
+
+area = 0.5 * (base1 + base2) * height
+print(f"Height: {height}")
+print(f"Base, first value: {base1}")
+print(f"Base, second value: {base2}")
+print(f"Expected Output: {area}")
+"""
+"""
+import math
+
+n = 4  
+s = 25  
+
+area = (n * s**2) / (4 * math.tan(math.pi / n))
+print(f"The number of sides: {n}")
+print(f"The length of a side: {s}")
+print(f"The area of the polygon is: {area:.0f}")
+
+"""
+"""
+base = 5
+height = 6
+
+area = base * height
+print(f"Length of base: {base}")
+print(f"Height of parallelogram: {height}")
+print(f"Expected Output: {area:.1f}")
+
+"""
+
+
+||Python JSON parsing||
+
+import json
+
+with open("data.json") as f:
+    data = json.load(f)
+
+print("Interface Status")
+print("=" * 80)
+print(f"{'DN':<50} {'Description':<20} {'Speed':<8} {'MTU':<6}")
+print("-" * 50, "-" * 20, "-" * 8, "-" * 6)
+
+for item in data["imdata"]:
+    attributes = item["l1PhysIf"]["attributes"]
+    dn = attributes["dn"]
+    descr = attributes["descr"]
+    speed = attributes["speed"]
+    mtu = attributes["mtu"]
+    print(f"{dn:<50} {descr:<20} {speed:<8} {mtu:<6}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
